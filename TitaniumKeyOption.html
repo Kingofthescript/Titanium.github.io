@@ -37,7 +37,7 @@
         }
 
         .access-button {
-            background-color: #888; /* Grey button background color */
+            background-color: #444; /* Dark grey button background color */
             color: #fff; /* Button text color */
             border: none;
             padding: 10px 20px;
@@ -48,7 +48,7 @@
         }
 
         .access-textbox {
-            background-color: #888; /* Grey text box background color */
+            background-color: #ddd; /* Slight grey text box background color */
             border: 1px solid #888;
             border-radius: 5px;
             padding: 12px;
@@ -58,6 +58,7 @@
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* Add a subtle box shadow */
             margin-bottom: 20px; /* Spacing between text box and download link */
             position: relative; /* Position for the confirmation box */
+            overflow: hidden; /* Prevent input from overflowing the box */
         }
 
         /* Style for the download link */
@@ -104,7 +105,7 @@
         <button class="access-button" onclick="toggleAccessTextbox()">Click me 🔑</button>
         <div class="access-textbox" id="access-textbox">
             <input type="text" id="access-key-input" placeholder="Enter Key" style="border: none; padding: 10px; width: 100%; margin-bottom: 10px;">
-            <button onclick="validateAccessKey()" style="background-color: #888; color: #fff; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 16px;">Submit</button>
+            <button onclick="validateAccessKey()" style="background-color: #444; color: #fff; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 16px;">Submit</button>
             <p id="access-key-message"></p>
         </div>
         
@@ -145,6 +146,4 @@
     </script>
 </body>
 </html>
-
-
 
