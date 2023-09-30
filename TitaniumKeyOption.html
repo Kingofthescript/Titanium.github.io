@@ -49,13 +49,14 @@
 
         .access-textbox {
             display: none;
-            background-color: #fff; /* Grey text box background color */
+            background-color: #f5f5f5; /* Light grey text box background color */
             border: 1px solid #888;
             border-radius: 5px;
-            padding: 10px;
+            padding: 12px;
             font-size: 16px;
             text-align: center;
             width: 200px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* Add a subtle box shadow */
         }
 
         /* Style for the download link */
@@ -75,10 +76,10 @@
 <body>
     <div class="title">Access Key Page</div>
     <div class="button-container">
-        <button class="access-button" onclick="toggleAccessTextbox()">CLICK ME ✅</button>
+        <button class="access-button" onclick="toggleAccessTextbox()">Click On Me 🔑</button>
         <div class="access-textbox" id="access-textbox">
-            <input type="text" id="access-key-input" placeholder="Enter Key">
-            <button onclick="validateAccessKey()">Submit</button>
+            <input type="text" id="access-key-input" placeholder="Enter Key" style="border: none; padding: 10px; width: 100%; margin-bottom: 10px;">
+            <button onclick="validateAccessKey()" style="background-color: #888; color: #fff; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 16px;">Submit</button>
             <p id="access-key-message"></p>
         </div>
         
@@ -110,5 +111,6 @@
     </script>
 </body>
 </html>
+
 
 
