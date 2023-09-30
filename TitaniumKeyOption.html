@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Access Key Page</title>
+    <style>
+        body {
+            background-color: #888; /* Grey background color */
+            background-image: url('texture.jpg'); /* Replace 'texture.jpg' with your texture image file */
+            background-size: cover;
+            background-blend-mode: overlay; /* Blend the texture with the background color */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .title {
+            font-size: 48px; /* Increased font size */
+            font-weight: bold;
+            color: #fff; /* Text color */
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3); /* Text shadow for emphasis */
+            letter-spacing: 2px;
+            text-align: center;
+            text-transform: uppercase; /* Uppercase text */
+            margin-bottom: 20px; /* Spacing between title and button */
+        }
+
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .access-button {
+            background-color: #888; /* Grey button background color */
+            color: #fff; /* Button text color */
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            margin-bottom: 20px; /* Spacing between button and text box */
+        }
+
+        .access-textbox {
+            display: none;
+            background-color: #fff; /* Grey text box background color */
+            border: 1px solid #888;
+            border-radius: 5px;
+            padding: 10px;
+            font-size: 16px;
+            text-align: center;
+            width: 200px;
+        }
+
+        /* Style for the download link */
+        .download-link {
+            display: none;
+            background-color: #888; /* Grey button background color */
+            color: #fff; /* Button text color */
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            margin-top: 20px; /* Spacing between button and text box */
+        }
+    </style>
+</head>
+<body>
+    <div class="title">Access Key Page</div>
+    <div class="button-container">
+        <button class="access-button" onclick="toggleAccessTextbox()">CLICK ME ✅</button>
+        <div class="access-textbox" id="access-textbox">
+            <input type="text" id="access-key-input" placeholder="Enter Key">
+            <button onclick="validateAccessKey()">Submit</button>
+            <p id="access-key-message"></p>
+        </div>
+        
+        <!-- Download link appears when key is valid -->
+        <a class="download-link" href="https://github.com/Kingofthescript/Titanium/archive/refs/heads/main.zip">Download Titanium</a>
+    </div>
+
+    <script>
+        function toggleAccessTextbox() {
+            var textbox = document.getElementById("access-textbox");
+            textbox.style.display = textbox.style.display === "none" ? "block" : "none";
+        }
+
+        function validateAccessKey() {
+            var input = document.getElementById("access-key-input").value;
+            var message = document.getElementById("access-key-message");
+            var downloadLink = document.querySelector(".download-link");
+
+            if (input === "STYCODETIEX") {
+                message.style.color = "green";
+                message.textContent = "Access granted! Click below to download.";
+                downloadLink.style.display = "block"; // Show the download link
+            } else {
+                message.style.color = "red";
+                message.textContent = "Invalid key. Please try again.";
+                downloadLink.style.display = "none"; // Hide the download link
+            }
+        }
+    </script>
+</body>
+</html>
+
+
