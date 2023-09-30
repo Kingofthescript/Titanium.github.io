@@ -48,8 +48,7 @@
         }
 
         .access-textbox {
-            display: none;
-            background-color: #f5f5f5; /* Light grey text box background color */
+            background-color: #888; /* Grey text box background color */
             border: 1px solid #888;
             border-radius: 5px;
             padding: 12px;
@@ -57,6 +56,8 @@
             text-align: center;
             width: 200px;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* Add a subtle box shadow */
+            margin-bottom: 20px; /* Spacing between text box and download link */
+            position: relative; /* Position for the confirmation box */
         }
 
         /* Style for the download link */
@@ -71,12 +72,36 @@
             font-size: 18px;
             margin-top: 20px; /* Spacing between button and text box */
         }
+
+        /* Style for the confirmation box */
+        .confirmation-box {
+            display: none;
+            background-color: green; /* Green confirmation box background color */
+            color: #fff; /* Text color */
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            animation: fadeOut 4s forwards; /* Animation for fading out */
+        }
+
+        @keyframes fadeOut {
+            0% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+                display: none;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="title">Access Key Page</div>
     <div class="button-container">
-        <button class="access-button" onclick="toggleAccessTextbox()">Click On Me 🔑</button>
+        <button class="access-button" onclick="toggleAccessTextbox()">Click me 🔑</button>
         <div class="access-textbox" id="access-textbox">
             <input type="text" id="access-key-input" placeholder="Enter Key" style="border: none; padding: 10px; width: 100%; margin-bottom: 10px;">
             <button onclick="validateAccessKey()" style="background-color: #888; color: #fff; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 16px;">Submit</button>
@@ -85,6 +110,9 @@
         
         <!-- Download link appears when key is valid -->
         <a class="download-link" href="https://github.com/Kingofthescript/Titanium/archive/refs/heads/main.zip">Download Titanium</a>
+        
+        <!-- Confirmation box for valid key -->
+        <div class="confirmation-box" id="confirmation-box">Valid Key Download link below</div>
     </div>
 
     <script>
@@ -97,15 +125,21 @@
             var input = document.getElementById("access-key-input").value;
             var message = document.getElementById("access-key-message");
             var downloadLink = document.querySelector(".download-link");
+            var confirmationBox = document.getElementById("confirmation-box");
 
             if (input === "STYCODETIEX") {
                 message.style.color = "green";
-                message.textContent = "Access granted! Click below to download.";
+                message.textContent = "Access granted!";
                 downloadLink.style.display = "block"; // Show the download link
+                confirmationBox.style.display = "block"; // Show the confirmation box
+                setTimeout(function () {
+                    confirmationBox.style.display = "none"; // Hide the confirmation box after 4 seconds
+                }, 4000); // 4 seconds (4000 milliseconds)
             } else {
                 message.style.color = "red";
                 message.textContent = "Invalid key. Please try again.";
                 downloadLink.style.display = "none"; // Hide the download link
+                confirmationBox.style.display = "none"; // Hide the confirmation box
             }
         }
     </script>
